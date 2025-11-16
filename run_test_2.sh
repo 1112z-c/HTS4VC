@@ -1,0 +1,19 @@
+python student_codebert_main_2.py \
+    --alpha 0.7 \
+    --beta 0.6 \
+    --output_dir=./saved_models \
+    --model_name=soft_distil_model_our_singstu.bin \
+    --tokenizer_name=../../../microsoft/codebert-base \
+    --model_name_or_path=../../../microsoft/codebert-base \
+    --train_data_file=../../data/big_vul/g5/g5_train.csv \
+    --eval_data_file=../../data/big_vul/g5/g5_val.csv \
+    --test_data_file=../../data/big_vul/g5/g5_test.csv \
+    --do_test \
+    --block_size 512 \
+    --epochs 50  \
+    --train_batch_size 8 \
+    --eval_batch_size 8 \
+    --learning_rate 2e-5 \
+    --max_grad_norm 1.0 \
+    --evaluate_during_training \
+    --seed 123456  2>&1 | tee test_singstu.log
